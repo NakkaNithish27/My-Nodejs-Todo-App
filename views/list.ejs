@@ -1,0 +1,58 @@
+<%-include('header')-%>
+
+<div class="todo">
+  <div class="">
+    <div class="box" id="heading">
+      <h1 id="title"> <%=listTitle%></h1>
+    </div>
+    <div class="box">
+      <!-- Rendering each item of newListItems as a ul li items -->
+
+      <%newListItems.forEach(function(item){%>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%=item.id%>" onChange="this.form.submit()">
+          <input type="text" hidden name="listName" value="<%=listTitle%>">
+          <p><%=item.name%></p>
+        </div>
+      </form>
+
+      <%})%>
+
+      <form class="item" action="/" method="post">
+        <input type="text" name="newItem" id="" placeholder="New Item" autocomplete="off">
+        <!-- Here we are getting button value dynamically from server,when the user post using this button,we can access it using req.body.List in our server
+            to know from where the post request came from,and to store req.body.newItem into its respective array  -->
+        <button type="submit" name="List" value="<%= listTitle  %>">+</button>
+      </form>
+    </div>
+  </div>
+
+  <!--Created Lists Section-->
+  <div class="">
+    <div class="box" id="heading">
+      <h1 id="title">Created Lists</h1>
+    </div>
+
+    <div class="box">
+      <form class="" action="/createList" method="post">
+        <input type="text" name="newList" id="" placeholder="New List" autocomplete="off">
+        <button type="submit" >+</button>
+      </form>
+
+      <% lists.forEach(function(item){%>
+        <div class="item">
+          <form class="" action="/deleteList" method="post">
+            <input  type="checkbox" name="checkbox" value="<%=item.id%>" onChange="this.form.submit()" >
+          </form>
+          <p class="listName"><%= item.name%></p>
+          <p id="open-list" type="button" name="button"><a class="anchor" href="<%= item.name%>">Open List</a></p>
+        </div>
+      <%})%>
+    </div>
+
+  </div>
+  <a class="homepage" href="/">Home Page</a>
+</div>
+
+<%-include('footer')-%>
