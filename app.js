@@ -11,6 +11,7 @@ mongoose.connect('mongodb+srv://NakkaNithish:MongodbNakka123@cluster0.i5pvew9.mo
 //storing typed values in an array
 // var items = ["Buy Food", "Cook Food", "Eat Food"];
 // var workListItems = [];
+let lists=[];
 const itemSchema = new mongoose.Schema({
   name: String,
 });
@@ -41,9 +42,11 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 app.get("/", function(req, res) {
   let day = date.getDate();
-  let lists=[];
   List.find(function(err,foundItems){
     if(!err){
+      while(!foundItems){
+       res.redirect("/" + customListName);
+      }
       lists=foundItems
     }
   });
@@ -75,9 +78,11 @@ app.get("/", function(req, res) {
 
 app.get("/:customListName", function(req, res) {
   const customListName = _.capitalize(req.params.customListName);
-  let lists=[];
   List.find(function(err,foundItems){
     if(!err){
+      while(!foundItems){
+       res.redirect("/" + customListName);
+      }
       lists=foundItems;
     }
   });
