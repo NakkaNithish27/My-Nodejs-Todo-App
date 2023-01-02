@@ -13,4 +13,3 @@ database on MongoDB Atlas.
 
 #This is a desktop version,I haven't made it responsive yet. 
 
-#It has some bugs😩, I will fix them when I get some free time. 
