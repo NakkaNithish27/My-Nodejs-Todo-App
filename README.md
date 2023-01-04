@@ -2,7 +2,7 @@
 
 #Live Preview-->https://nodejs-todo-app-by-nithish.onrender.com
 
-•I have used html, css, Bootstrap for its frontend. 
+•I have used html, css for its frontend. 
 
 •Node.js, Express.js, Ejs, mongoose for its Backend. 
 
