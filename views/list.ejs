@@ -1,6 +1,13 @@
 <%-include('header')-%>
-
-<div class="todo">
+<!-- <div class="row">
+    <div    col-lg-6">
+        red
+    </div>
+    <div   col-lg-6">
+        blue
+    </div>
+</div> -->
+<div class="todo ">
   <div class="">
     <div class="box" id="heading">
       <h1 id="title"> <%=listTitle%></h1>
@@ -37,7 +44,7 @@
     <div class="box">
       <form class="" action="/createList" method="post">
         <input type="text" name="newList" id="" placeholder="New List" autocomplete="off">
-        <button type="submit" >+</button>
+        <button class="create-list-button" type="submit" >+</button>
       </form>
 
       <% lists.forEach(function(item){%>

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
@@ -7,7 +8,7 @@ const date = require(__dirname + "/date.js")
 
 const app = express();
 mongoose.set('strictQuery', false);
-mongoose.connect('mongodb+srv://NakkaNithish:MongodbNakka123@cluster0.i5pvew9.mongodb.net/todolistDB');
+mongoose.connect(process.env.MONGODB_URL);
 //storing typed values in an array
 // var items = ["Buy Food", "Cook Food", "Eat Food"];
 // var workListItems = [];
